@@ -25,6 +25,14 @@
 		/*	Hero Slider
 		/*----------------------------------------------------*/
 
+		
+		// Function to load HTML file into an element with a specific ID using jQuery
+		$('#header-3').load('head.html');
+
+		// Function to load HTML file into an element with a specific ID using jQuery
+		$('#footer').load('foot.html');
+
+
 		$('.slider').slider({
 			full_width: false,
 			interval:6000,
