@@ -26,10 +26,13 @@
 		/*----------------------------------------------------*/
 
 		
-		// Function to load HTML file into an element with a specific ID using jQuery
+		// Function to load head.html file 
 		$('#header-3').load('head.html');
 
-		// Function to load HTML file into an element with a specific ID using jQuery
+		// Function to load newsletter.html file
+		$('#newsletter').load('newsletter.html');
+
+		// Function to load foot.html file
 		$('#footer').load('foot.html');
 
 
