@@ -102,7 +102,7 @@ jQuery(document).ready(function() {
 			logoClone = logo.clone(),
 			mobileLogoSrc = logo.data('mobile-logo'),
 			stickyLogoSrc = logo.data('sticky-logo'),
-			burgerMenu = navikHeader.find('.burger-menu'),
+			burgerMenu = navikHeader.find('.pizza-menu'),
 			navikMenuListWrapper = $('.navik-menu > ul'),
 			navikMenuListDropdown = $('.navik-menu ul li:has(ul)'),
 			headerShadow = $('.navik-header.header-shadow'),
@@ -185,7 +185,7 @@ jQuery(document).ready(function() {
 
 		var navikHeaderOverlay = $('.navik-header-overlay'),
 			navikMenuOverlay = $('.navik-menu-overlay'),
-			burgerMenuOverlay = navikHeaderOverlay.find('.burger-menu'),
+			burgerMenuOverlay = navikHeaderOverlay.find('.pizza-menu'),
 			lineMenuOverlay = navikHeaderOverlay.find('.line-menu'),
 			menuOverlayLogo = navikHeaderOverlay.find('.logo'),
 			overlayLogoClone = menuOverlayLogo.clone(),
@@ -294,7 +294,7 @@ jQuery(document).ready(function() {
 			navikSideContent = $('.navik-side-content'),
 			logoFixedSidebar = navikFixedSidebar.find('.logo'),
 			logoClone = logoFixedSidebar.clone(),
-			burgerMenuFixedSidebar = navikFixedSidebar.find('.burger-menu'),
+			burgerMenuFixedSidebar = navikFixedSidebar.find('.pizza-menu'),
 			burgerMenuDetach = burgerMenuFixedSidebar.detach(),
 			navikFixedDropdown = navikMenuFixed.find('li:has(ul)');
 
@@ -304,7 +304,7 @@ jQuery(document).ready(function() {
 
 		$('.navik-fixed-sidebar .logo, .navik-menu-fixed').wrapAll('<div class="fixed-menu-wrap"></div>');
 
-		var burgerMenuMove = navikFixedSidebar.next('.burger-menu'),
+		var burgerMenuMove = navikFixedSidebar.next('.pizza-menu'),
 			fixedSidebarlineMenu = burgerMenuMove.find('.line-menu');
 
 		fixedSidebarlineMenu.wrapAll('<span></span>');

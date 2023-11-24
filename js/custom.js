@@ -1,6 +1,3 @@
-// JavaScript Document
-
-
 	$(window).on('load', function() {
 	
 		"use strict";
@@ -20,20 +17,22 @@
 			
 		"use strict";
 
-
-		/*----------------------------------------------------*/
-		/*	Hero Slider
-		/*----------------------------------------------------*/
-
-		
 		// Function to load head.html file 
-		$('#header-3').load('head.html');
+		$('#header1').load('head.html');
 
 		// Function to load newsletter.html file
 		$('#newsletter').load('newsletter.html');
 
 		// Function to load foot.html file
 		$('#footer').load('foot.html');
+
+		/*----------------------------------------------------*/
+		/*	Hero Slider
+		/*----------------------------------------------------*/
+
+		$('.carousel').carousel({
+			interval: 2000
+		  })
 
 
 		$('.slider').slider({

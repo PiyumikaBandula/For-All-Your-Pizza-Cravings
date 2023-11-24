@@ -1,0 +1,49 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top:5%;
+    border:none;
+    color:blanchedalmond;
+  }
+
+  th, td {
+    border:none;
+    padding: 5px;
+    color:aliceblue;
+
+  }
+
+  .delete-icon {
+    cursor: pointer;
+    font-size: 20px;
+
+  }
+
+  .quantity-button {
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .checkout-button {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  .coupon-button {
+    background-color: yellow;
+    color: black;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  .a{
+     color: whitesmoke;
+     padding:20px;
+     margin-left: 24%;
+     font-size: 95px;
+  }
+  body{
+    background-color: grey;
+  }
