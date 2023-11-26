@@ -1,16 +1,39 @@
-/**
-	Navik - HTML header navigation menu - v1.4.2
- 	Copyright (c) 2020, Pophonic
-	
-	Author: Pophonic
-	Profile: https://codecanyon.net/user/pophonic
-	
-**/
+// Pizza items data
+var pizzaItems = [
+	{ name: 'Margherita Pizza', description: 'Classic pizza with tomato sauce, fresh mozzarella cheese, basil, and a drizzle of olive oil.', price: '$9.99' },
+	{ name: 'Pepperoni Pizza', description: 'A traditional favorite with tomato sauce, mozzarella cheese, and plenty of pepperoni slices.', price: '$14.99' },
+	{ name: 'Vegetarian Pizza', description: 'Loaded with a variety of fresh vegetables like bell peppers, onions, mushrooms, black olives, and tomatoes.', price: '$15.99' },
+	{ name: 'BBQ Chicken Pizza', description: 'Tangy barbecue sauce, grilled chicken, red onions, and cilantro on a bed of melted cheese.', price: '$9.99' },
+	{ name: 'Hawaiian Pizza', description: 'A tropical delight featuring ham, pineapple, and mozzarella cheese.', price: '$11.99' },
+	{ name: 'Meat Lover\'s Pizza', description: 'A carnivore\'s dream, piled high with pepperoni, sausage, bacon, and ground beef.', price: '$7.99' },
+	{ name: 'Margarita Supreme', description: 'A deluxe version of the Margherita pizza with additional toppings like olives, mushrooms, and artichokes.', price: '$20.99' },
+	{ name: 'Buffalo Chicken Pizza', description: 'Spicy buffalo sauce, grilled chicken, red onions, and a drizzle of ranch dressing.', price: '$23.99' },
+	{ name: 'White Pizza', description: 'A unique pizza with a garlic and olive oil base, ricotta cheese, spinach, and mozzarella.', price: '$30.99' },
+	{ name: 'Pesto Delight', description: 'Pesto sauce, cherry tomatoes, fresh mozzarella, and pine nuts for a flavorful and aromatic experience.', price: '$12.99' }
+];
 
+// Function to display pizza items
+function displayPizzaMenu() {
+	var menuContainer = $('#menu-container');
 
-jQuery(document).ready(function() {
+	// Loop through pizza items and create HTML elements
+	for (var i = 0; i < pizzaItems.length; i++) {
+		var pizzaItem = pizzaItems[i];
+		var html = '<div class="menu-item" style="color: white"> ';
+		html += '<h3>' + pizzaItem.name + '</h3>';
+		html += '<p>' + pizzaItem.description + '</p>';
+		html += '<p><strong>Price:</strong> ' + pizzaItem.price + '</p>';
+		html += '</div>';
+
+		// Append the HTML to the menu container
+		menuContainer.append(html);
+	}
+}
+
+$(document).ready(function() {
 	
 	"use strict";
+	displayPizzaMenu();
 	
 	/* ========== Sticky on scroll ========== */
 	function stickyNav() {
@@ -67,28 +90,6 @@ jQuery(document).ready(function() {
 
 		$('.logoCenter').width(logoCenterWidth);
 		
-	}
-
-	/* ========== Menu overlay transition ========== */
-	function overlayMenuTransition() {
-		var overlayMenuFirst = $('.navik-menu-overlay > ul > li:first-child'),
-			overlayMenuList = $('.navik-menu-overlay > ul > li');
-
-		overlayMenuFirst.attr('data-delay', '0');
-
-		overlayMenuList.each(function(){
-			var $this = $(this),
-				overlayMenuNext = $this.next('li'),
-				menuDataDelay = $this.attr('data-delay'),
-				menuDataDelayNext = parseInt(menuDataDelay) + parseInt('100');
-
-			overlayMenuNext.attr('data-delay', menuDataDelayNext);
-
-			$this.delay(menuDataDelay).queue(function(next) {
-				$(this).addClass("menuSlideIn");
-				next();
-			});
-		});
 	}
 
 	/* ========== Horizontal navigation menu ========== */
@@ -179,162 +180,4 @@ jQuery(document).ready(function() {
 		listMenuHover4.append('<div class="hover-transition"></div>');
 
 	}
-
-	/* ========== Overlay navigation menu ========== */
-	if ($('.navik-header-overlay').length) {
-
-		var navikHeaderOverlay = $('.navik-header-overlay'),
-			navikMenuOverlay = $('.navik-menu-overlay'),
-			burgerMenuOverlay = navikHeaderOverlay.find('.pizza-menu'),
-			lineMenuOverlay = navikHeaderOverlay.find('.line-menu'),
-			menuOverlayLogo = navikHeaderOverlay.find('.logo'),
-			overlayLogoClone = menuOverlayLogo.clone(),
-			menuWrapperLogoSrc = menuOverlayLogo.data('overlay-logo'),
-			menuOverlayListDropdown = $('.navik-menu-overlay > ul > li:has(ul)'),
-			menuOverlayLink = $('.navik-menu-overlay > ul > li > a'),
-			menuSlide = $('.navik-header-overlay.menu-slide'),
-			menuSlideSubmenuLink = menuSlide.find('.navik-menu-overlay > ul ul a'),
-			menuSlideSubmenuDropdown = menuSlide.find('.navik-menu-overlay > ul > li > ul li:has(ul)'),
-			menuSocialMedia = navikMenuOverlay.next('.menu-social-media'),
-			submenuVerticalListItem = $('.submenu-vertical > ul > li > ul li:has(ul)'),
-			submenuVerticalLink = $('.submenu-vertical > ul > li > ul a');
-
-		lineMenuOverlay.wrapAll('<span></span>');
-		menuOverlayLink.wrap('<div class="menu-overlay-link"></div>');
-		submenuVerticalLink.wrap('<div class="menu-overlay-link"></div>');
-		menuSlideSubmenuLink.wrap('<div class="menu-overlay-link"></div>');
-
-		/* ========== Submenu Toggle ========== */
-		menuOverlayListDropdown.each(function(){
-			var menuOverlayDropdownLink = $(this).children('.menu-overlay-link');
-			menuOverlayDropdownLink.prepend( '<span class="overlay-dropdown-plus"></span>' );
-			$(this).addClass('overlay_dropdown_menu');
-		});
-
-		submenuVerticalListItem.each(function(){
-			var submenuVerticalDropdownLink = $(this).children('.menu-overlay-link');
-			submenuVerticalDropdownLink.prepend( '<span class="overlay-dropdown-plus"></span>' );
-			$(this).addClass('overlay_dropdown_menu');
-		});
-
-		menuSlideSubmenuDropdown.each(function(){
-			var submenuVerticalDropdownLink = $(this).children('.menu-overlay-link');
-			submenuVerticalDropdownLink.prepend( '<span class="overlay-dropdown-plus"></span>' );
-			$(this).addClass('overlay_dropdown_menu');
-		});
-
-		$('.overlay_dropdown_menu > ul').addClass('overlay-submenu-close');
-		
-		$('.overlay-dropdown-plus').on("click", function(){
-			var $thisParent = $(this).parent('.menu-overlay-link');
-			$thisParent.next('ul').slideToggle(300).toggleClass('overlay-submenu-close');
-			$(this).toggleClass('overlay-dropdown-open');
-		});
-
-		navikMenuOverlay.add(menuSocialMedia).wrapAll('<div class="nav-menu-wrapper"></div>');
-
-		var overlayNavMenuWrapper = $('.nav-menu-wrapper');
-
-		overlayNavMenuWrapper.prepend(overlayLogoClone);
-		overlayNavMenuWrapper.find('.logo img').attr('src', menuWrapperLogoSrc);
-
-		var menuOverlayHover = $('.navik-menu-overlay > ul > .overlay_dropdown_menu > ul');
-
-		menuOverlayHover.each(function(){
-			$(this).on("mouseenter", function () {
-				$(this).parents("li").addClass("overlay-menu-hover");
-			});
-			$(this).on("mouseleave", function () {
-				$(this).parents("li").removeClass("overlay-menu-hover");
-			});
-		});
-
-		/* ========== Menu overlay open ========== */
-		burgerMenuOverlay.on("click", function(){
-
-			var overlayMenuList = $('.navik-menu-overlay > ul > li');
-
-			$(this).toggleClass('menu-open');
-			overlayNavMenuWrapper.toggleClass('overlay-menu-open');
-			overlayMenuList.removeClass("menuSlideIn");
-			
-			if ($(this).hasClass("menu-open")) {
-				overlayMenuTransition();
-				overlayMenuList.removeClass("menuSlideOut").addClass("menuFade");
-			}
-
-			if (!$(this).hasClass("menu-open")) {
-				overlayMenuList.addClass("menuSlideOut").removeClass("menuFade");
-			}
-
-		});
-
-		/* ========== Menu slide settings ========== */
-		var menuSlideNavWrapper = menuSlide.find('.nav-menu-wrapper'),
-			menuSlideNavLogo = menuSlideNavWrapper.find('.logo');
-
-		if (navikHeaderOverlay.hasClass('menu-slide')){
-			navikHeaderOverlay.removeClass('overlay-center-menu');
-		}
-
-		menuSlideNavLogo.remove();
-		menuSlideNavWrapper.after('<div class="slidemenu-bg-overlay"></div>');
-
-		$('.slidemenu-bg-overlay').on("click", function(){
-			menuSlideNavWrapper.removeClass('overlay-menu-open');
-			burgerMenuOverlay.removeClass('menu-open');
-		});
-
-	}
-
-	/* ========== Fixed sidebar menu ========== */
-	if ($('.navik-fixed-sidebar').length) {
-		var navikFixedSidebar = $('.navik-fixed-sidebar'),
-			navikMenuFixed = $('.navik-menu-fixed'),
-			navikSideContent = $('.navik-side-content'),
-			logoFixedSidebar = navikFixedSidebar.find('.logo'),
-			logoClone = logoFixedSidebar.clone(),
-			burgerMenuFixedSidebar = navikFixedSidebar.find('.pizza-menu'),
-			burgerMenuDetach = burgerMenuFixedSidebar.detach(),
-			navikFixedDropdown = navikMenuFixed.find('li:has(ul)');
-
-		navikFixedSidebar.parent('body').addClass('body-fixed-sidebar');
-		navikFixedSidebar.after('<div class="fixedsidebar-bg-overlay"></div>').after(burgerMenuDetach);
-		navikSideContent.prepend(logoClone);
-
-		$('.navik-fixed-sidebar .logo, .navik-menu-fixed').wrapAll('<div class="fixed-menu-wrap"></div>');
-
-		var burgerMenuMove = navikFixedSidebar.next('.pizza-menu'),
-			fixedSidebarlineMenu = burgerMenuMove.find('.line-menu');
-
-		fixedSidebarlineMenu.wrapAll('<span></span>');
-
-		/* ========== Side menu open on mobile ========== */
-		burgerMenuMove.on("click", function(){
-			$(this).toggleClass('menu-open');
-			navikFixedSidebar.toggleClass('fixed-sidebar-open');
-		});
-
-		$('.fixedsidebar-bg-overlay').on("click", function(){
-			navikFixedSidebar.removeClass('fixed-sidebar-open');
-			burgerMenuMove.removeClass('menu-open');
-		});
-
-		/* ========== Submenu collapse ========== */
-		navikFixedDropdown.each(function(){
-			$(this).append( '<span class="overlay-dropdown-plus"></span>' );
-		});
-
-		$('.overlay-dropdown-plus').on("click", function(){
-			$(this).prev('ul').slideToggle(300).toggleClass('submenu-collapse');
-			$(this).toggleClass('overlay-dropdown-open');
-		});
-	}
-
-	/* ========== Menu icon color ========== */
-	$('.navik-menu-icon').css('color', function () {
-		var iconColorAttr = $(this).data('fa-color');
-		return iconColorAttr;
-	});
-
 });
