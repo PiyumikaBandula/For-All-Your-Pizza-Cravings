@@ -1,7 +1,12 @@
+body {
+  background-color: white;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
     margin-top:5%;
+    margin-bottom: 5%;
     border:none;
     color:blanchedalmond;
   }
@@ -9,7 +14,7 @@ table {
   th, td {
     border:none;
     padding: 5px;
-    color:aliceblue;
+    color:black;
 
   }
 
@@ -31,7 +36,7 @@ table {
     border: none;
     cursor: pointer;
   }
-  .coupon-button {
+  .update-cart-button {
     background-color: yellow;
     color: black;
     padding: 10px;
@@ -39,11 +44,15 @@ table {
     cursor: pointer;
   }
   .a{
-     color: whitesmoke;
+     color: black;
      padding:20px;
      margin-left: 24%;
      font-size: 95px;
   }
-  body{
-    background-color: grey;
+
+  #footer {
+    background-color: black;
   }
+
+  
+  

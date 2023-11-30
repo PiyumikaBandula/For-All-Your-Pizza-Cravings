@@ -1,5 +1,9 @@
+body {
+  background-color: white;
+}
+
 #newsletter{
-  background-color: #f6f9fa; 
+  background-color: #bdc0c1; 
   margin-bottom: 0;
   padding: 0 4%;
 }
@@ -84,4 +88,8 @@
 
 .newsletter-form .newsletter-form label.valid {
   color: #48af4b;
+}
+
+#footer {
+  background-color: black;
 }
