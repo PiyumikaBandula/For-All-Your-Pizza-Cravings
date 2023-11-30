@@ -353,9 +353,9 @@ ul.txt-list {
 /*------------------------------------------*/
 
 .btn {
-  background-color: transparent;
+  background-color: yellow;
   font-family: 'Oswald', sans-serif;
-  color: #fff;
+  color: black;
   font-size: 16px;
   line-height: 1;
   font-weight: 500;
@@ -365,12 +365,7 @@ ul.txt-list {
   border: 1px solid transparent;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
-  border-radius: 2px;  
-  -webkit-transition: all 400ms ease-in-out;
-  -moz-transition: all 400ms ease-in-out;
-  -o-transition: all 400ms ease-in-out;
-  -ms-transition: all 400ms ease-in-out;
-  transition: all 400ms ease-in-out; 
+  border-radius: 2px;
 }
 
 /*------------------------------------------*/

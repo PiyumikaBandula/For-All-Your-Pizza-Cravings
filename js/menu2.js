@@ -16,21 +16,87 @@
 function displayPizzaMenu() {
     var menuContainer = $('#menu-container');
 
+    
+
     // Loop through pizza items and create HTML elements
+    // for (var i = 0; i < pizzaItems.length; i++) {
+    //     var pizzaItem = pizzaItems[i];
+    //     var html = '<div class="menu-item" style="color: black">';
+    //     html += '<h2>' + pizzaItem.name + '</h2>';
+    //     html += '<p>' + pizzaItem.description + '</p>';
+    //     html += '<p><strong>Price:</strong> ' + pizzaItem.price + '</p>';
+    //     html += '</div>';
+
+    //     // Append the HTML to the menu container
+    //     menuContainer.append(html);
+    // }
+
+    var html = '<div class="container-wrap items-container"><div class="row no-gutters d-flex">';
+
     for (var i = 0; i < pizzaItems.length; i++) {
         var pizzaItem = pizzaItems[i];
-        var html = '<div class="menu-item" style="color: black">';
-        html += '<h3>' + pizzaItem.name + '</h3>';
+        html += '<a href="#" class="img" style="background-image: url(images/img1.jpg);"></a>';
+        html += '<div class="menu-item" style="color: black">';
+        html += '<h2>' + pizzaItem.name + '</h2>';
         html += '<p>' + pizzaItem.description + '</p>';
-        html += '<p><strong>Price:</strong> ' + pizzaItem.price + '</p>';
-        html += '</div>';
-
-        // Append the HTML to the menu container
-        menuContainer.append(html);
+        html += '<p class="price"><span>' + pizzaItem.price + '</span><span>$</span> <a class="ml-2 btn" style="float: right">Order</a></p></div>';       
     }
+    html += '</div></div>';
+    // Append the HTML to the menu container
+    menuContainer.append(html);
 }
 
 // Call the function to display the pizza menu
 $(document).ready(function() {
     displayPizzaMenu();
 });
+
+$(function(){
+
+	$("#cart-items").slideUp();
+	$(".cart").on("click", function () {
+	$("#cart-items").slideToggle();
+	});
+
+	$("#items-basket").text("(" + ($("#list-item").children().length) + ")");
+
+	
+	$(".item").on("click", function () {
+  $("#cart-items").slideDown();
+ setTimeout(function(){
+	$("#cart-items").slideUp();
+ }, 2000)
+		//add items to basket
+		$(this).each(function () {
+			var name = $(this).children(".item-detail").children("h3").text();
+			var remove = "<button class='remove'> X </button>";
+			var cena = "<span class='eachPrice'>" + (parseFloat($(this).children(".item-detail").children(".price").text())) + "</span>";
+			$("#list-item").append("<li>" + name + "&#09; - &#09;" + cena + "$" + remove + "</li>");
+
+			//number of items in basket
+			$("#items-basket").text("(" + ($("#list-item").children().length) + ")");
+			$("#items-basket").text();
+	
+		//calculate total price
+		var totalPrice = 0;
+			$(".eachPrice").each(function (){ 
+			  var cenaEach = parseFloat($(this).text());
+			  totalPrice+=cenaEach;
+			});
+			$("#total-price").text(totalPrice + "$");
+		});
+
+		//remove items from basket
+		$(".remove").on("click", function () {
+			$(this).parent().remove();
+
+			var totalPrice = 0;
+			$(".eachPrice").each(function (){ 
+			  var cenaEach = parseFloat($(this).text());
+			  totalPrice+=cenaEach;
+			});
+			$("#total-price").text(totalPrice + "$");
+			$("#items-basket").text("(" + ($("#list-item").children().length) + ")");
+		});
+	});
+})
