@@ -1,25 +1,47 @@
-var ShoppingCart = (function() {
-  "use strict";
+let openShopping = document.querySelector('.shopping');
+  let closeShopping = document.querySelector('.closeShopping');
+  let list = document.querySelector('.list');
+  let listCard = document.querySelector('.listCard');
+  let body = document.querySelector('body');
+  let total = document.querySelector('.total');
+  let quantity = document.querySelector('.quantity');
 
-  // Cahce necesarry DOM Elements
-  var productsEl = document.querySelector(".products"),
-      cartEl =     document.querySelector(".shopping-cart-list"),
-      productQuantityEl = document.querySelector(".product-quantity"),
-      emptyCartEl = document.querySelector(".empty-cart-btn"),
-      cartCheckoutEl = document.querySelector(".cart-checkout"),
-      totalPriceEl = document.querySelector(".total-price");
+  openShopping.addEventListener('click', ()=>{
+    body.classList.add('active');
+})
+closeShopping.addEventListener('click', ()=>{
+    body.classList.remove('active');
+})
 
+function getLocalStorage() {
+  const storedData = localStorage.getItem('cartdata');
+  return storedData ? JSON.parse(storedData) : [];
+}
 
-  var products = [],
-      productsInCart = [];
+function saveToLocalStorage(cart) {
+  localStorage.setItem('cartdata', JSON.stringify(cart));
+}
 
-  var getData = function() {
+var products = [];
+let listCards = getLocalStorage();
+
+var getData = function() {
     var data = new XMLHttpRequest();
     data.open("GET", "js/data.json", true);
     data.onload = function() {
       if(data.status >= 200 && data.status < 400) {
         products = JSON.parse(data.responseText);
-        generateProductList();
+        products.forEach((value, key) =>{
+          let newDiv = document.createElement('div');
+          newDiv.classList.add('item');
+          newDiv.innerHTML = `
+              <img src="${value.imageUrl}">
+              <div class="title">${value.name}</div>
+              <div class="price">${value.price.toLocaleString()}</div>
+              <button onclick="addToCard(${key})">Add To Card</button>`;
+          
+            list.appendChild(newDiv);
+        })
       } else {
         alert("Could not get the data!");
       }
@@ -30,116 +52,68 @@ var ShoppingCart = (function() {
     }
 
     data.send();
+}
+ 
+// This functon starts the whole application
+function initApp(){
+  getData();
+}
+initApp();
+
+function addToCard(key){
+  if(listCards[key] == null){
+      // copy product form list to list card
+      listCards[key] = JSON.parse(JSON.stringify(products[key]));
+      listCards[key].quantity = 1;
   }
+  reloadCard();
+}
 
-  var setupListeners = function() {
-    productsEl.addEventListener("click", addProductCallback);
-
-    emptyCartEl.addEventListener("click", emptyCartCallback);
-  }
-
-  var addProductCallback = function(event) {
-    var el = event.target;
-    if(el.classList.contains("add-to-cart")) {
-      var elId = el.dataset.id;
-      addToCart(elId);
+function reloadCard(){
+  listCard.innerHTML = '';
+  let count = 0;
+  let totalPrice = 0;
+  listCards.forEach((value, key)=>{
+    if (value) {
+      totalPrice = totalPrice + value.price;
+      count = count + value.quantity;
+      if(value != null){
+          let newDiv = document.createElement('li');
+          newDiv.innerHTML = `
+              <div><img src="${value.imageUrl}"/></div>
+              <div>${value.name}</div>
+              <div>${value.price.toLocaleString()}</div>
+              <div>
+                  <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
+                  <div class="count">${value.quantity}</div>
+                  <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
+              </div>`;
+          listCard.appendChild(newDiv);
+      }
     }
+      
+  })
+  total.innerText = 'Checkout $' + totalPrice.toLocaleString();
+  quantity.innerText = count;
+
+  // After modifying the cart, save it to localStorage
+  saveToLocalStorage(listCards);
+}
+reloadCard();
+
+function changeQuantity(key, quantity){
+  if(quantity == 0){
+      delete listCards[key];
+  }else{
+      listCards[key].quantity = quantity;
+      listCards[key].price = quantity * products[key].price;
   }
+  reloadCard();
+}
 
-  var emptyCartCallback = function(event) {
-    if(confirm("Are you sure?")) {
-        productsInCart = [];
-    }
-    generateCartList();
-  }
-
-  // Pretty much self explanatory function. NOTE: Here I have used template strings (ES6 Feature)
-  var generateProductList = function() {
-    products.forEach(function(item) {
-      var productEl = document.createElement("div");
-      productEl.className = "product";
-      productEl.innerHTML = (`<div class="product-image">
-                                <img src="${item.imageUrl}" alt="${item.name}">
-                             </div>
-                             <div class="product-name"><span>Product:</span> ${item.name}</div>
-                             <div class="product-description"><span>Description:</span> ${item.description}</div>
-                             <div class="product-price"><span>Price:</span> ${item.price} $</div>
-                             <div class="product-add-to-cart">
-                               <a href="#0" class="button see-more">More Details</a>
-                               <a href="#0" class="button add-to-cart" data-id=${item.id}>Add to Cart</a>
-                             </div>
-                          </div>`);
-
-      productsEl.appendChild(productEl);
-    });
-  }
-
-    // Adds new items or updates existing one in productsInCart array
-  var addToCart = function(id) {
-    var obj = products[id];
-    if(productsInCart.length === 0 || productFound(obj.id) === undefined) {
-      productsInCart.push({product: obj, quantity: 1});
-    } else {
-      productsInCart.forEach(function(item) {
-        if(item.product.id === obj.id) {
-          item.quantity++;
-        }
-      });
-    }
-    generateCartList();
-  }
-
-  var productFound = function(productId) {
-    return productsInCart.find(function(item) {
-      return item.product.id === productId;
-    });
-  }
-
-  // Like one before and I have also used ES6 template strings
-  var generateCartList = function() {
-
-    cartEl.innerHTML = "";
-
-    productsInCart.forEach(function(item) {
-      var li = document.createElement("li");
-      li.innerHTML = `${item.quantity} ${item.product.name} - $${item.product.price * item.quantity}`;
-      cartEl.appendChild(li);
-    });
-
-    productQuantityEl.innerHTML = productsInCart.length;
-
-    generateCartButtons()
-  }
-
-  // Function that generates Empty Cart and Checkout buttons based on condition that checks if productsInCart array is empty
-  var generateCartButtons = function() {
-    if(productsInCart.length > 0) {
-      emptyCartEl.style.display = "block";
-      cartCheckoutEl.style.display = "block"
-      totalPriceEl.innerHTML = "$ " + calculateTotalPrice();
-    } else {
-      emptyCartEl.style.display = "none";
-      cartCheckoutEl.style.display = "none";
-    }
-  }
-
-  var calculateTotalPrice = function() {
-    return productsInCart.reduce(function(total, item) {
-      return total + (item.product.price *  item.quantity);
-    }, 0);
-  }
-
-  // This functon starts the whole application
-  var init = function() {
-    getData();
-    setupListeners();
-  }
-
-  // Exposes just init function to public, everything else is private
-  return {
-    init: init
-  };
-
-})();
-
-ShoppingCart.init();
+function checkOutFunc() {
+  listCards = [];
+  saveToLocalStorage(listCards);
+  reloadCard();
+  window.alert('Payment done!');
+}

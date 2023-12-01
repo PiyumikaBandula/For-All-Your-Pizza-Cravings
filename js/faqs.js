@@ -6,6 +6,6 @@ $(document).ready(function() {
     });
 });
 $("#btn").click(function(){
-    var url = "Contactus.html";
+    var url = "contact.html";
 $(location).attr('href',url);
 });
