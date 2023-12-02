@@ -120,5 +120,5 @@ function checkOutFunc() {
   listCards = [];
   saveToLocalStorage(listCards);
   reloadCard();
-  window.alert('Payment done!');
+  window.location.href = 'plugin_payment/paymentPage.html';
 }
