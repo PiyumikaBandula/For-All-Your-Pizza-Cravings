@@ -18,13 +18,13 @@
 		"use strict";
 
 		// Function to load head.html file 
-		$('#header1').load('head.html');
+		$('#header1').load('https://piyumikabandula.github.io/Pizza-Website/head.html');
 
 		// Function to load newsletter.html file
-		$('#newsletter').load('newsletter.html');
+		$('#newsletter').load('https://piyumikabandula.github.io/Pizza-Website/newsletter.html');
 
 		// Function to load foot.html file
-		$('#footer').load('foot.html');
+		$('#footer').load('https://piyumikabandula.github.io/Pizza-Website/foot.html');
 
 		/*----------------------------------------------------*/
 		/*	Hero Slider

@@ -22,15 +22,63 @@ function saveToLocalStorage(cart) {
   localStorage.setItem('cartdata', JSON.stringify(cart));
 }
 
-var products = [];
+var products = [{"id":0,
+"name":"Margherita Pizza",
+"description":"Classic pizza with tomato sauce, fresh mozzarella cheese, basil, and a drizzle of olive oil.",
+"imageUrl":"images/pizza-1.jpg",
+"price":9.99},
+{"id":1,
+"name":"Pepperoni Pizza",
+"description":"Classic pizza with tomato sauce, fresh mozzarella cheese, basil, and a drizzle of olive oil.",
+"imageUrl":"images/pizza-2.jpg",
+"price":14.99},
+{"id":2,
+"name":"Vegetarian Pizza",
+"description":"Classic pizza with tomato sauce, fresh mozzarella cheese, basil, and a drizzle of olive oil.",
+"imageUrl":"images/pizza-3.jpg",
+"price":9.99},
+{"id":3,
+"name":"BBQ Chicken Pizza",
+"description":"Classic pizza with tomato sauce, fresh mozzarella cheese, basil, and a drizzle of olive oil.",
+"imageUrl":"images/pizza-4.jpg",
+"price":7.99},
+{"id":4,
+"name":"Hawaiian Pizza",
+"description":"Classic pizza with tomato sauce, fresh mozzarella cheese, basil, and a drizzle of olive oil.",
+"imageUrl":"images/pizza-5.jpg",
+"price":30.99},
+{"id":5,
+"name":"Meat Lovers Pizza",
+"description":"Classic pizza with tomato sauce, fresh mozzarella cheese, basil, and a drizzle of olive oil.",
+"imageUrl":"images/pizza-6.jpg",
+"price":23.99},
+{"id":6,
+"name":"BBQ Chicken Pizza",
+"description":"Classic pizza with tomato sauce, fresh mozzarella cheese, basil, and a drizzle of olive oil.",
+"imageUrl":"images/pizza-4.jpg",
+"price":7.99},
+{"id":7,
+"name":"Hawaiian Pizza",
+"description":"Classic pizza with tomato sauce, fresh mozzarella cheese, basil, and a drizzle of olive oil.",
+"imageUrl":"images/pizza-5.jpg",
+"price":30.99},
+{"id":8,
+"name":"Meat Lovers Pizza",
+"description":"Classic pizza with tomato sauce, fresh mozzarella cheese, basil, and a drizzle of olive oil.",
+"imageUrl":"images/pizza-6.jpg",
+"price":23.99}];;
 let listCards = getLocalStorage();
 
 var getData = function() {
-    var data = new XMLHttpRequest();
-    data.open("GET", "js/data.json", true);
-    data.onload = function() {
-      if(data.status >= 200 && data.status < 400) {
-        products = JSON.parse(data.responseText);
+    // var data = new XMLHttpRequest();
+    // data.open("GET", "js/data.json");
+    // data.setRequestHeader("Access-Control-Allow-Origin", "*");
+    // Set the request header to indicate the expected data type
+    // data.setRequestHeader('Content-Type', 'application/json');
+    // data.onload = function() {
+    //   if(data.status >= 200 && data.status < 400) {
+        //products = JSON.parse(data.responseText);
+        
         products.forEach((value, key) =>{
           let newDiv = document.createElement('div');
           newDiv.classList.add('item');
@@ -44,16 +92,16 @@ var getData = function() {
               list.appendChild(newDiv);
             }
         })
-      } else {
-        alert("Could not get the data!");
-      }
-    }
+    //   } else {
+    //     alert("Could not get the data!");
+    //   }
+    // }
 
-    data.onerror = function() {
-      alert("Error in communication with server!");
-    }
+    // data.onerror = function() {
+    //   alert("Error in communication with server!");
+    // }
 
-    data.send();
+    // data.send();
 }
  
 // This functon starts the whole application
