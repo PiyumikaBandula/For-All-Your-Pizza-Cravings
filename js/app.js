@@ -128,7 +128,7 @@ function reloadCard(){
   let totalPrice = 0;
   listCards.forEach((value, key)=>{
     if (value) {
-      totalPrice = totalPrice + value.price;
+      totalPrice = totalPrice + value.price * value.quantity;
       count = count + value.quantity;
       if(value != null){
           let newDiv = document.createElement('li');
@@ -159,7 +159,6 @@ function changeQuantity(key, quantity){
       delete listCards[key];
   }else{
       listCards[key].quantity = quantity;
-      listCards[key].price = quantity * products[key].price;
   }
   reloadCard();
 }
