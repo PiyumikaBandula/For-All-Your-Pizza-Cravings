@@ -20,6 +20,7 @@
 .answer {
   display: none;
 }
+
 button {
   transition: background-color 0.3s ease;
   background-color: red ; 
@@ -29,6 +30,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+
 .button-container
 {
   padding: 100px 200x;
@@ -39,46 +41,4 @@ button {
       margin-top: 20px;
       margin-left: 620px;
       margin-bottom: 20px;
-}
-
-/* contact us */
-.container-contact {
-  max-width: 600px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  text-align: center;
-  color: #333;
-}
-
-form {
-  margin-top: 20px;
-}
-
-label {
-  display: block;
-  margin-bottom: 8px;
-  color: #555;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-button:hover {
-  background-color: #b0b2b4;
 }

@@ -19,18 +19,18 @@
     box-shadow: 0 2px 3px rgba(96, 96, 96, .1);
   }
 
-  #header-3.navik-header { padding-top: 0; }
+  #header-1.navik-header { padding-top: 0; }
 
-  .navik-header .logo { padding: 10px 0; float: none; }
+  .navik-header .logo { padding: 10px 0; float: right; }
   .navik-header .logo img { width: auto; max-width: inherit; max-height: 70px; } 
 
   .navik-menu { text-align: center; }
   .navik-menu ul.top-list { margin-top: 15px; }
 
-  .navik-menu ul li > a, #header-3 .navik-menu ul li > a { font-size: 20px; background-color: rgba(160, 160, 160, .05); margin-bottom: 7px; }
+  .navik-menu ul li > a, #header-1 .navik-menu ul li > a { font-size: 20px; background-color: rgba(160, 160, 160, .05); margin-bottom: 7px; }
   .navik-menu ul li.basket-ico > a { margin-bottom: 10px; }
 
-  .navik-menu ul ul li > a, #header-3 .navik-menu ul ul li > a { font-size: 18px; }
+  .navik-menu ul ul li > a, #header-1 .navik-menu ul ul li > a { font-size: 18px; }
 
   #header1 .navik-menu ul li.nav-btn a { top: 0; font-size: 32px; padding-left: 15px; padding-right: 15px; }
 
@@ -156,7 +156,7 @@
     box-shadow: 0 2px 3px rgba(96, 96, 96, .1);
   }
 
-  #header-3.navik-header { padding-top: 0; }
+  #header-1.navik-header { padding-top: 0; }
 
   .navik-header .logo { padding: 10px 0; float: none; }
   .navik-header .logo img { width: auto; max-width: inherit; max-height: 70px; } 
@@ -164,10 +164,10 @@
   .navik-menu { text-align: center; }
   .navik-menu ul.top-list { margin-top: 15px; }
 
-  .navik-menu ul li > a, #header-3 .navik-menu ul li > a { font-size: 20px; background-color: rgba(160, 160, 160, .05); margin-bottom: 7px; }
+  .navik-menu ul li > a, #header-1 .navik-menu ul li > a { font-size: 20px; background-color: rgba(160, 160, 160, .05); margin-bottom: 7px; }
   .navik-menu ul li.basket-ico > a { margin-bottom: 10px; }
 
-  .navik-menu ul ul li > a, #header-3 .navik-menu ul ul li > a { font-size: 18px; }
+  .navik-menu ul ul li > a, #header-1 .navik-menu ul ul li > a { font-size: 18px; }
 
   .navik-menu .mega-menu-container { text-align: left; padding: 25px 0 0; height: 450px; overflow: scroll;  overflow-x: hidden;  }
   .mega-menu-box, .mega-menu-box.last-menu-box {  margin-bottom: 25px; }
@@ -175,7 +175,7 @@
   .navik-menu .mega-menu-heading { font-size: 20px; margin-bottom: 5px; }
   .navik-menu .mega-menu-media-info { padding-left: 15px; }
 
-  #header-3 .navik-menu ul li.nav-btn a { top: 0; font-size: 32px; padding-left: 15px; padding-right: 15px; }
+  #header-1 .navik-menu ul li.nav-btn a { top: 0; font-size: 32px; padding-left: 15px; padding-right: 15px; }
 
   .basket-ico em.roundpoint { top: -6px; }
 
@@ -402,7 +402,7 @@
     box-shadow: 0 2px 3px rgba(96, 96, 96, .1);
   }
 
-  #header-3.navik-header { padding-top: 0; }
+  #header-1.navik-header { padding-top: 0; }
 
   .navik-header .logo { padding: 10px 0; float: none; }
   .navik-header .logo img { width: auto; max-width: inherit; max-height: 70px; } 
@@ -418,12 +418,12 @@
 
   .navik-menu ul.top-list { margin-top: 15px; }
 
-  .navik-menu ul li > a, #header-3 .navik-menu ul li > a { font-size: 20px; background-color: rgba(160, 160, 160, .05); margin-bottom: 7px; }
+  .navik-menu ul li > a, #header-1 .navik-menu ul li > a { font-size: 20px; background-color: rgba(160, 160, 160, .05); margin-bottom: 7px; }
   .navik-menu ul li.basket-ico > a { margin-bottom: 10px; }
 
-  .navik-menu ul ul li > a, #header-3 .navik-menu ul ul li > a { font-size: 18px; }
+  .navik-menu ul ul li > a, #header-1 .navik-menu ul ul li > a { font-size: 18px; }
 
-  #header-3 .navik-menu ul li.nav-btn a { top: 0; font-size: 32px; padding-left: 15px; padding-right: 15px; }
+  #header-1 .navik-menu ul li.nav-btn a { top: 0; font-size: 32px; padding-left: 15px; padding-right: 15px; }
 
  .basket-ico em.roundpoint { top: -6px; }
 

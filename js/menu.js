@@ -96,7 +96,6 @@ $(document).ready(function() {
 
 				logoImg.attr('src', mobileLogoSrc);
 				navikHeader.removeClass('viewport-lg');
-				/*navikHeader.addClass('viewport-sm');*/
 				headerTransparent.removeClass('header-transparent-on');
 				headerOpacity.removeClass('header-opacity-on');
 				megaMenuContainer.removeClass('container');
@@ -104,7 +103,6 @@ $(document).ready(function() {
 			} else {
 
 				logoImg.attr('src', logoSrc);
-				/*navikHeader.removeClass('viewport-sm');*/
 				navikHeader.addClass('viewport-lg');
 				headerTransparent.addClass('header-transparent-on');
 				headerOpacity.addClass('header-opacity-on');

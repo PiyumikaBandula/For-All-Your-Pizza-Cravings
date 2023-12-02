@@ -1,12 +1,12 @@
 let openShopping = document.querySelector('.shopping');
-  let closeShopping = document.querySelector('.closeShopping');
-  let list = document.querySelector('.list');
-  let listCard = document.querySelector('.listCard');
-  let body = document.querySelector('body');
-  let total = document.querySelector('.total');
-  let quantity = document.querySelector('.quantity');
+let closeShopping = document.querySelector('.closeShopping');
+let list = document.querySelector('.list');
+let listCard = document.querySelector('.listCard');
+let body = document.querySelector('body');
+let total = document.querySelector('.total');
+let quantity = document.querySelector('.quantity');
 
-  openShopping.addEventListener('click', ()=>{
+openShopping.addEventListener('click', ()=>{
     body.classList.add('active');
 })
 closeShopping.addEventListener('click', ()=>{
@@ -37,10 +37,12 @@ var getData = function() {
           newDiv.innerHTML = `
               <img src="${value.imageUrl}">
               <div class="title">${value.name}</div>
-              <div class="price">${value.price.toLocaleString()}</div>
+              <div class="price">$ ${value.price.toLocaleString()}</div>
               <button onclick="addToCard(${key})">Add To Card</button>`;
           
-            list.appendChild(newDiv);
+            if (list) {
+              list.appendChild(newDiv);
+            }
         })
       } else {
         alert("Could not get the data!");
@@ -65,6 +67,9 @@ function addToCard(key){
       // copy product form list to list card
       listCards[key] = JSON.parse(JSON.stringify(products[key]));
       listCards[key].quantity = 1;
+  }else{
+    // copy product form list to list card
+    listCards[key].quantity = listCards[key].quantity + 1;
   }
   reloadCard();
 }

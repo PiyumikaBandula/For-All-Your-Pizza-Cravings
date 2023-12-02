@@ -23,20 +23,19 @@
     <link href="css/head.css" rel="stylesheet">
     <link href="css/newsletter.css" rel="stylesheet">
     <link href="css/foot.css" rel="stylesheet">
-    <link href="css/faqs.css" rel="stylesheet">
+    <link href="css/contact.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
   </head>
   <body>
+      <!-- Shopping cart icon -->
+      <div class="shopping">
+        <img src="images/shopping.jpg">
+        <span class="quantity"> </span>
+      </div>
+
       <!-- Header -->
       <section id="header1" class="header navik-header header-dark header-shadow">	
       </section>
-
-      <!-- Shopping cart icon -->
-      <div>
-        <span class="ico-holder shopping">
-        <img src="images/shopping.svg">
-        <span class="quantity"> </span>
-      </div>
 
       <!-- Contact Intro-->
       <div id="locations-page" class="page-intro">
@@ -50,22 +49,43 @@
       </div>
 
       <!-- body -->
-      <div class="container-contact">
-        <form id="myform">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" >
-          <div id="namemsg"  style="color: red;"></div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email">
-
-          <label for="subject">Subject:</label>
-          <input type="text" id="subject" name="subject">
-
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="4"></textarea>
-        </form>
-        <button type="submit"  onclick="validateForm()">Submit</button><br>
-          <span id="msg" class="error-message"></span><br>
+      <div class="row">
+        <div class="col-6">
+          <div class="map container-md p-10">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11542.6525817757!2d-79.76383544838713!3d43.67597511422984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b158194f9f7e5%3A0x2a93c8bcc4cc2131!2sPizza%20Pizza!5e0!3m2!1sen!2sca!4v1699478922785!5m2!1sen!2sca" 
+            width="600" 
+            height="450"
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="container-contact">
+              <form name="contcatform" class="row booking-form">                     
+                <div class="col-lg-6">
+                    <input type="text" name="name" class="form-control name" placeholder="Your Name*" required> 
+                </div>     
+                <div class="col-lg-6">
+                    <input type="email" name="email" class="form-control email" placeholder="Email Address*" required> 
+                </div>
+                <div class="col-lg-6">
+                    <input type="tel" name="phone" class="form-control phone" placeholder="Phone Number*" required> 
+                </div>        
+                <div class="col-md-12">
+                    <textarea name="message" class="form-control message" rows="4" placeholder="Your Message ..."></textarea>
+                </div> 
+                <div class="col-md-12 mt-10">  
+                    <button type="submit" class="btn-md btn-red btn tra-red-hover submit">Submit</button> 
+                </div>
+                <div class="col-md-12 booking-form-msg text-center">
+                    <div class="sending-msg"><span class="loading"></span></div>
+                </div>                                                  
+            </form>
+          </div>
+        </div>
       </div>
 
       <!-- Shopping cart -->
