@@ -1,17 +1,8 @@
-let openShopping = document.querySelector('.shopping');
-let closeShopping = document.querySelector('.closeShopping');
 let list = document.querySelector('.list');
 let listCard = document.querySelector('.listCard');
 let body = document.querySelector('body');
 let total = document.querySelector('.total');
 let quantity = document.querySelector('.quantity');
-
-openShopping.addEventListener('click', ()=>{
-    body.classList.add('active');
-})
-closeShopping.addEventListener('click', ()=>{
-    body.classList.remove('active');
-})
 
 function getLocalStorage() {
   const storedData = localStorage.getItem('cartdata');
@@ -66,7 +57,7 @@ var products = [{"id":0,
 "name":"Meat Lovers Pizza",
 "description":"Classic pizza with tomato sauce, fresh mozzarella cheese, basil, and a drizzle of olive oil.",
 "imageUrl":"images/pizza-6.jpg",
-"price":23.99}];;
+"price":23.99}];
 let listCards = getLocalStorage();
 
 var getData = function() {
@@ -161,11 +152,4 @@ function changeQuantity(key, quantity){
       listCards[key].quantity = quantity;
   }
   reloadCard();
-}
-
-function checkOutFunc() {
-  listCards = [];
-  saveToLocalStorage(listCards);
-  reloadCard();
-  window.location.href = 'plugin_payment/paymentPage.html';
 }

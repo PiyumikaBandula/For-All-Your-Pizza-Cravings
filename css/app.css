@@ -120,8 +120,8 @@ header{
 .listCard li{
   display: grid;
   grid-template-columns: 100px repeat(3, 1fr);
-  color: #fff;
-  row-gap: 10px;
+  color: black;
+  row-gap: 1px;
 }
 .listCard li div{
   display: flex;
@@ -149,4 +149,12 @@ a + div {
 
 a:hover+div {
   display: block;
+}
+
+body {
+  background-color: white;
+}
+
+.container {
+  color: black;
 }

@@ -1,6 +1,15 @@
-let shopCart = document.querySelector('#cart-table');
-let shopCartBody = document.querySelector('#cart-table-body');
-let shopCartFoot = document.querySelector('#cart-table-foot');
+let listCard = document.querySelector('.listCard');
+let body = document.querySelector('body');
+let total = document.querySelector('.total');
+let quantity = document.querySelector('.quantity');
+let sub = document.querySelector('.sub');
+let tot = document.querySelector('.tot');
+let discount = document.querySelector('#discount-code');
+let coupn = document.querySelector('#coupon');
+
+coupn.addEventListener('click', ()=>{
+    tot.value = 0;
+})
 
 function getLocalStorage() {
   const storedData = localStorage.getItem('cartdata');
@@ -11,57 +20,44 @@ function saveToLocalStorage(cart) {
   localStorage.setItem('cartdata', JSON.stringify(cart));
 }
 
-var products = [];
-listCards = getLocalStorage();
- 
-// This functon starts the whole application
-function initApp(){
-  
-}
-initApp();
+let listCards = getLocalStorage();
 
 function reloadCard(){
-    shopCartBody.remove();
-    shopCartFoot.remove();
-
-    shopCart.appendChild(document.createElement('tbody'));
-    shopCart.appendChild(document.createElement('tfoot'));
-
-    let count = 0;
-    let totalPrice = 0;
-    listCards.forEach((value, key)=>{
-        if (value) {
-        var unitPrice = value.price / value.quantity;
-        totalPrice = totalPrice + value.price;
-        count = count + value.quantity;
-        if(value != null){
-            let newDiv = document.createElement('tr');
-            newDiv.innerHTML = `
-                <td>${value.name}</td>
-                <td>${unitPrice.toLocaleString()}</td>
-                <td>
-                    <input type="number" value=${value.quantity} class="quantity-input">
-                    <div>
-                        <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
-                        <div class="count">${value.quantity}</div>
-                        <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
+  listCard.innerHTML = '';
+  let count = 0;
+  let totalPrice = 0;
+  listCards.forEach((value, key)=>{
+    if (value) {
+      totalPrice = totalPrice + value.price * value.quantity;
+      count = count + value.quantity;
+      if(value != null){
+          let newDiv = document.createElement('tr');
+          newDiv.innerHTML = `
+                <td data-label="Product" class="product-name">
+                    <div class="cart-product-img"><img src="${value.imageUrl}" style="width:50px;" alt="cart-preview"></div>
+                    <div class="cart-product-desc">
+                        <h5 class="h5-sm">${value.name}</h5>
+                        <p class="p-sm">${value.description}</p>
                     </div>
                 </td>
-                <td>${value.price.toLocaleString()}</td>`;
-            shopCartBody.appendChild(newDiv);
-        }
-        }
-        
-    })
-
-    newDiv = document.createElement('tr');
-    newDiv.innerHTML = `
-        <td colspan="3">Total</td>
-        <td colspan="2">${totalPrice.toLocaleString()}</td>`;
-    shopCartFoot.appendChild(newDiv);
-
-    // After modifying the cart, save it to localStorage
-    saveToLocalStorage(listCards);
+                <td data-label="Price" class="product-price"><h5 class="h5-md">$ ${value.price.toLocaleString()}</h5></td>
+                <td data-label="Quantity" class="product-qty">
+                    <button onclick="changeQuantity(${key}, ${value.quantity - 1})" style="padding: 0px 8px;">-</button>
+                    ${value.quantity}
+                    <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button
+                </td>
+                <td data-label="Total" class="product-price-total"><h5 class="h5-md">$ ${value.price * value.quantity}</h5></td>`
+          listCard.appendChild(newDiv);
+      }
+    }
+      
+  })
+  quantity.innerText = count;
+  sub.innerText = '$ ' + totalPrice.toLocaleString();
+  tot.innerText = sub.innerText
+  
+  // After modifying the cart, save it to localStorage
+  saveToLocalStorage(listCards);
 }
 reloadCard();
 
@@ -70,20 +66,6 @@ function changeQuantity(key, quantity){
       delete listCards[key];
   }else{
       listCards[key].quantity = quantity;
-      listCards[key].price = quantity * products[key].price;
   }
-
-  // After modifying the cart, save it to localStorage
-  saveToLocalStorage(listCards);
-
   reloadCard();
 }
-
-function checkOutFunc() {
-  listCards = [];
-  saveToLocalStorage(listCards);
-  reloadCard();
-  window.alert('Payment done!');
-}
-
-
