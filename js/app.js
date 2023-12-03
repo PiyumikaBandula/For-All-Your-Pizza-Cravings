@@ -67,12 +67,12 @@ var getData = function() {
     //   if(data.status >= 200 && data.status < 400) {
         //products = JSON.parse(data.responseText);
         
-        products.forEach((value, key) =>{
+        products. forEach((value, key) =>{
           let newDiv = document.createElement('div');
           newDiv.classList.add('item');
           newDiv.innerHTML = `
-              <div class="menu-6-item bg-white">
-              <img class="img-fluid" src="${value.imageUrl}">
+              <div class="menu-6-item bg-white hover-overlay">
+              <img class="menu-6-img img-fluid" src="${value.imageUrl}">
               <h5 class="h5-sm">${value.name}</h5>
               <p class="grey-color">${value.description}</p>
               <div class="price">$ ${value.price.toLocaleString()}</div>
