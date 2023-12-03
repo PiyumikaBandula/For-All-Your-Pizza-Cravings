@@ -6,6 +6,7 @@ let sub = document.querySelector('.sub');
 let tot = document.querySelector('.tot');
 let discount = document.querySelector('#discount-code');
 let coupn = document.querySelector('#coupon');
+let checkOut = document.querySelector('#checkOut');
 
 coupn.addEventListener('click', ()=>{
     tot.value = 0;
@@ -69,3 +70,9 @@ function changeQuantity(key, quantity){
   }
   reloadCard();
 }
+
+checkOut.addEventListener('click', ()=>{
+  listCards = [];
+  reloadCard();
+  window.location.href = "plugin_payment/paymentPage.html";
+})
