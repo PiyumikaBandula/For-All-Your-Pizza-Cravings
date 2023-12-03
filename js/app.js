@@ -1,7 +1,4 @@
 let list = document.querySelector('.list');
-let listCard = document.querySelector('.listCard');
-let body = document.querySelector('body');
-let total = document.querySelector('.total');
 let quantity = document.querySelector('.quantity');
 
 function getLocalStorage() {
@@ -74,10 +71,13 @@ var getData = function() {
           let newDiv = document.createElement('div');
           newDiv.classList.add('item');
           newDiv.innerHTML = `
-              <img src="${value.imageUrl}">
-              <div class="title">${value.name}</div>
+              <div class="menu-6-item bg-white">
+              <img class="img-fluid" src="${value.imageUrl}">
+              <h5 class="h5-sm">${value.name}</h5>
+              <p class="grey-color">${value.description}</p>
               <div class="price">$ ${value.price.toLocaleString()}</div>
-              <button onclick="addToCard(${key})">Add To Card</button>`;
+              <button onclick="addToCard(${key})">Add To Card</button>
+              </div>`;
           
             if (list) {
               list.appendChild(newDiv);
@@ -114,30 +114,13 @@ function addToCard(key){
 }
 
 function reloadCard(){
-  listCard.innerHTML = '';
   let count = 0;
-  let totalPrice = 0;
   listCards.forEach((value, key)=>{
     if (value) {
-      totalPrice = totalPrice + value.price * value.quantity;
       count = count + value.quantity;
-      if(value != null){
-          let newDiv = document.createElement('li');
-          newDiv.innerHTML = `
-              <div><img src="${value.imageUrl}"/></div>
-              <div>${value.name}</div>
-              <div>${value.price.toLocaleString()}</div>
-              <div>
-                  <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
-                  <div class="count">${value.quantity}</div>
-                  <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
-              </div>`;
-          listCard.appendChild(newDiv);
-      }
     }
       
   })
-  total.innerText = 'Checkout $' + totalPrice.toLocaleString();
   quantity.innerText = count;
 
   // After modifying the cart, save it to localStorage
