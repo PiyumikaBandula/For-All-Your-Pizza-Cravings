@@ -2,7 +2,7 @@
 
 .slider-container {
     width: 100%;
-    margin: auto;
+    height: 90vh;
     overflow: hidden;
   }
   
@@ -26,7 +26,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
     font-size: 24px;
     font-family: cursive;
     font-weight: bold;
