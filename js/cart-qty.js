@@ -1,20 +1,21 @@
-let quantity = document.querySelector('.quantity');
+$(document).ready(function() {
+  var quantity = $('.quantity');
+  var listCards = getLocalStorage();
 
-function getLocalStorage() {
-  const storedData = localStorage.getItem('cartdata');
-  return storedData ? JSON.parse(storedData) : [];
-}
+  function getLocalStorage() {
+    const storedData = localStorage.getItem('cartdata');
+    return storedData ? JSON.parse(storedData) : [];
+  }
 
-let listCards = getLocalStorage();
+  function reloadCard() {
+    let count = 0;
+    $.each(listCards, function(key, value) {
+      if (value) {
+        count += value.quantity;
+      }
+    });
+    quantity.text(count);
+  }
 
-function reloadCard(){
-  let count = 0;
-  listCards.forEach((value, key)=>{
-    if (value) {
-      count = count + value.quantity;
-    }
-      
-  })
-  quantity.innerText = count;
-}
-reloadCard();
+  reloadCard();
+});
