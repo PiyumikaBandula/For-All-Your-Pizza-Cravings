@@ -80,13 +80,7 @@ function loadDesc() {
   $('.product-price').text(`Price: $${storedProduct.price.toLocaleString()}`);
   $('.add-to-cart-btn').attr('onclick', `addToCard(${storedProduct.id})`);
 
-  $.each(listCards, function(key, value) {
-    if (value) {
-      count = count + value.quantity;
-    }
-  });
-
-  quantity.text(count);
+  reloadCard();
 }
 
 function addToCard(key) {
@@ -96,8 +90,44 @@ function addToCard(key) {
     } else {
       listCards[key].quantity = listCards[key].quantity + 1;
     }
+    reloadCard();
   }
+
+  function reloadCard() {
+    var count = 0;
+    $.each(listCards, function(key, value) {
+      if (value) {
+        count = count + value.quantity;
+      }
+    });
+    quantity.text(count);
+    saveToLocalStorage(listCards);
+  }
+
+  // Create Custom Plugin
+  (function ($) {
+    $.fn.customizePizza = function () {
+      // Plugin
+      return this.each(function () {
+        var $form = $(this);
+        var $customizeButton = $form.find('#customize-pizza');
+
+        $customizeButton.on('click', function () {
+          // Customization
+          var size = $form.find('#pizza-size').val();
+          var toppings = $form.find('input[name="topping"]:checked')
+            .map(function () {
+              return this.value;
+            })
+            .get();
+
+          alert('Customize Pizza\nSize: ' + size + '\nToppings: ' + toppings.join(', '));
+        });
+      });
+    };
+  })(jQuery);
 
 $(document).ready(function() {
     loadDesc();
+    $('#pizza-order-form').customizePizza();
 });

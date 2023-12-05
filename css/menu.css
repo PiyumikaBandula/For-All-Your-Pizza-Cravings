@@ -12,11 +12,6 @@ body{
   margin-left: 95%;
   margin-top: 2%;
 }
-header{
-  display: grid;
-  grid-template-columns: 1fr 50px;
-  margin-top: 50px;
-}
 
 .shopping img{
   width: 20px;

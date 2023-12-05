@@ -19,7 +19,7 @@
     box-shadow: 0 2px 3px rgba(96, 96, 96, .1);
   }
 
-  #header-1.navik-header { padding-top: 0; }
+  #header1.navik-header { padding-top: 0; }
 
   .navik-header .logo { padding: 10px 0; float: right; }
   .navik-header .logo img { width: auto; max-width: inherit; max-height: 70px; } 
@@ -372,9 +372,6 @@
   .section-title h2.h2-title { font-size: 4.15rem; }
   .section-title p { padding: 0 15%; }
 
-  /* Item Code */
-  span.item-code { font-size: 1rem; margin-top: 10px; }
-
   /*------------------------------------------*/
   /*   NAVIGATION MENU    
   /*------------------------------------------*/
@@ -470,7 +467,6 @@
   .menu-6-txt { padding: 25px 13px 20px; }
 
   .menu-title-wrapper h5 { font-size: 1.3rem; }
-  .menu-3-item-data h6 { font-size: 0.915rem; }
   #menu-3 .menu-item-desc p { font-size: 1rem; }
   .menu-5-txt p { padding-right: 5%; margin-bottom: 10px; }
   .menu-6-txt p { font-size: 0.875rem; margin-bottom: 15px; }
@@ -482,7 +478,6 @@
   .menu-6-item:hover .add-to-cart { bottom: 20px; }
 
   .menu-3-img { padding: 0 5px; }
-  .menu-7-img .item-rating { bottom: 25px; right: 15px; }
 
   /* Gallery */
   #gallery-1 .img-meta, #gallery-2 .img-meta { padding: 30px 20px 25px; } 

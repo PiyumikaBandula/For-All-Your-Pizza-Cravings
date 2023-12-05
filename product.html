@@ -46,8 +46,24 @@
             <h2 class="product-name"></h2>
             <p class="product-description-text"></p>
             <p class="product-price"></p>
-            <button class="add-to-cart-btn" onclick="">Add To Cart</button>
-			<a class="back-to-menu-btn" href="menu.html">Back To Menu</a>
+			<form id="pizza-order-form">
+				<label for="pizza-size">Size:</label>
+				<select id="pizza-size">
+				  <option value="small">Small</option>
+				  <option value="medium">Medium</option>
+				  <option value="large">Large</option>
+				</select>
+			  
+				<label for="pizza-toppings">Toppings:</label>
+				<label>Pepperoni</label> <input type="checkbox" name="topping" value="pepperoni">
+				<label>Mushrooms</label> <input type="checkbox" name="topping" value="mushrooms">
+				<label>Onions</label> <input type="checkbox" name="topping" value="onions">
+			  
+				<button class="btn btn-md btn-salmon tra-salmon-hover" type="button" id="customize-pizza">Customize Pizza</button>
+			  </form>
+			  <br>
+			  <button class="btn btn-md btn-salmon tra-salmon-hover add-to-cart-btn" onclick="addToCard();">Add To Cart</button>
+			  <a class="btn btn-md btn-salmon tra-salmon-hover back-to-menu-btn" href="menu.html">Back To Menu</a>
         </div>
 
         <!-- Newsletter -->

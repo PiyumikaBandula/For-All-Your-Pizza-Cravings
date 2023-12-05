@@ -7,8 +7,9 @@ p {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin: 20px auto;
+  margin: auto;
   max-width: 600px;
+  margin-bottom: 10%;
 }
 
 .product-image {
@@ -36,15 +37,12 @@ p {
 }
 
 .add-to-cart-btn {
-  background-color: #3498db;
-  display: inline-block;
-  font-size: 1.1rem;
-  line-height: 1;
-  font-weight: 700;
-  padding: 13px 32px;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  transition: all 500ms ease-in-out;  
+  background-color: yellow;
+  color: black;
+  padding: 10px;
+  border: none;
+  cursor: pointer; 
+  float: left;
 }
 
 .add-to-cart-btn:hover {
@@ -52,17 +50,35 @@ p {
 }
 
 .back-to-menu-btn {
-  background-color: #3498db;
-  display: inline-block;
-  font-size: 1.1rem;
-  line-height: 1;
-  font-weight: 700;
-  padding: 13px 32px;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  transition: all 500ms ease-in-out;  
+  background-color: yellow;
+  color: black;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  float: right;
 }
 
 .back-to-menu-btn:hover {
     background-color: #f5b200!important;
+}
+
+label, input {
+  color: black;
+}
+
+#customize-pizza {
+  width: 100%;
+  background-color: yellow;
+  color: black;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+#customize-pizza:hover {
+  background-color: #f5b200!important;
+}
+
+a {
+  opacity: 1;
 }
