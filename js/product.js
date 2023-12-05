@@ -1,4 +1,4 @@
-var list = $('.list');
+var listCard = $('.myProd');
 var quantity = $('.quantity');
 var listCards = getLocalStorage();
 
@@ -66,59 +66,38 @@ function saveToLocalStorage(cart) {
   localStorage.setItem('cartdata', JSON.stringify(cart));
 }
 
-function goToDesc(key) {
-  var selectedProduct = products[key];
-
-  // Save the selected product to local storage
-  localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
-
-  window.location.href="product.html";
-}
-
-function addToCard(key) {
-  if (listCards[key] == null) {
-    listCards[key] = $.extend(true, {}, products[key]);
-    listCards[key].quantity = 1;
-  } else {
-    listCards[key].quantity = listCards[key].quantity + 1;
-  }
-  reloadCard();
-}
-
-function reloadCard() {
+function loadDesc() {
+  listCard.empty();
   var count = 0;
+
+  // Retrieve product from local storage
+  var storedProduct = JSON.parse(localStorage.getItem('selectedProduct'));
+
+  // Populate HTML elements with product details
+  $('.product-image').attr('src', storedProduct.imageUrl);
+  $('.product-name').text(storedProduct.name);
+  $('.product-description-text').text(storedProduct.description + storedProduct.details);
+  $('.product-price').text(`Price: $${storedProduct.price.toLocaleString()}`);
+  $('.add-to-cart-btn').attr('onclick', `addToCard(${storedProduct.id})`);
+
   $.each(listCards, function(key, value) {
     if (value) {
       count = count + value.quantity;
     }
   });
+
   quantity.text(count);
-  saveToLocalStorage(listCards);
 }
 
+function addToCard(key) {
+    if (listCards[key] == null) {
+      listCards[key] = $.extend(true, {}, products[key]);
+      listCards[key].quantity = 1;
+    } else {
+      listCards[key].quantity = listCards[key].quantity + 1;
+    }
+  }
+
 $(document).ready(function() {
-  reloadCard();
-
-  var getData = function() {
-    products.forEach(function(value, key) {
-      var newDiv = $(`<div class="item"></div>`).html(`
-        <div class="menu-6-item bg-white hover-overlay">
-          <img class="menu-6-img img-fluid" onclick="goToDesc(${key});" src="${value.imageUrl}">
-          <h5 class="h5-sm" onclick="goToDesc(${key});">${value.name}</h5>
-          <p class="grey-color" onclick="goToDesc(${key});">${value.description}</p>
-          <div class="price" onclick="goToDesc(${key});">$ ${value.price.toLocaleString()}</div>
-          <button onclick="addToCard(${key})">Add To Card</button>
-        </div>
-      `);
-
-      if (list.length > 0) {
-        list.append(newDiv);
-      }
-    });
-  }
-
-  function initApp() {
-    getData();
-  }
-  initApp();  
+    loadDesc();
 });

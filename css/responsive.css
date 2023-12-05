@@ -242,7 +242,6 @@
   .menu-item-price h6, .menu-item-price h5 { font-size: 1.5rem; }
 
   #tabs-nav { margin-bottom: 50px; }
-  .tabs-1 li { padding: 0 35px; }
 
   .menu-3-img { padding: 0; }
   .menu-4-img { padding-right: 0; }
@@ -484,8 +483,6 @@
 
   .menu-3-img { padding: 0 5px; }
   .menu-7-img .item-rating { bottom: 25px; right: 15px; }
-
-  .tabs-1 li { padding: 0 50px; }
 
   /* Gallery */
   #gallery-1 .img-meta, #gallery-2 .img-meta { padding: 30px 20px 25px; } 
