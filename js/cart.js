@@ -7,6 +7,7 @@ var discount = $('#discount-code');
 var coupn = $('#coupon');
 var checkOut = $('#checkOut');
 var listCards = getLocalStorage();
+var discountVal = 0;
 
 function getLocalStorage() {
   const storedData = localStorage.getItem('cartdata');
@@ -52,7 +53,7 @@ function reloadCard() {
 
   quantity.text(count);
   sub.text('$ ' + totalPrice.toLocaleString());
-  tot.text(sub.text());
+  tot.text('$ ' + (totalPrice - discountVal).toLocaleString());
 
   // After modifying the cart, save it to localStorage
   saveToLocalStorage(listCards);
@@ -65,6 +66,10 @@ function deleteItem (key) {
   }
 }
 
+function emptyCart() {
+  listCards = [];
+  reloadCard();
+}
 
 function changeQuantity(key, quantity) {
   if (quantity == 0) {
@@ -77,7 +82,7 @@ function changeQuantity(key, quantity) {
 
 $(document).ready(function() {
   coupn.on('click', function() {
-    tot.val(0);
+    discountVal = discount.val()/100;
   });  
 
   reloadCard();
