@@ -10,7 +10,7 @@ body{
   position: fixed;
   z-index: 2000; /* Set a higher z-index value */
   margin-left: 95%;
-  margin-top: 3.2%;
+  margin-top: 2%;
 }
 header{
   display: grid;
@@ -19,7 +19,7 @@ header{
 }
 
 .shopping img{
-  width: 30px;
+  width: 20px;
 }
 
 .shopping span{
@@ -31,7 +31,7 @@ header{
   color: #fff;
   position: absolute;
   top: -5px;
-  left: 25px;
+  left: 15px;
   padding: 3px 10px;
 }
 
