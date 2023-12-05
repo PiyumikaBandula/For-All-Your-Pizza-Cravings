@@ -66,7 +66,7 @@ function deleteItem (key) {
   }
 }
 
-function emptyCart() {
+function emptyTheCart() {
   listCards = [];
   reloadCard();
 }
