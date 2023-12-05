@@ -1,7 +1,8 @@
 body{
-  background-color: #E3E7E8;
+  background-color: white;
   font-family: system-ui;
 }
+
 .shopping{
   display: block;
   transition: 0.5s;
@@ -20,6 +21,7 @@ header{
 .shopping img{
   width: 30px;
 }
+
 .shopping span{
   background: red;
   border-radius: 50%;
@@ -31,6 +33,10 @@ header{
   top: -5px;
   left: 25px;
   padding: 3px 10px;
+}
+
+.cont {
+  height: 250px;
 }
 
 .list{
@@ -51,6 +57,7 @@ header{
 }
 .list .item img{
   height: 250px;
+  max-height: 250px;
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
 }
@@ -73,10 +80,6 @@ a + div {
   height: 30px;
   width: 290px;
   margin-left: 10px;
-}
-
-body {
-  background-color: white;
 }
 
 .container {

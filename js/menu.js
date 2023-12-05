@@ -102,13 +102,15 @@ $(document).ready(function() {
   var getData = function() {
     products.forEach(function(value, key) {
       var newDiv = $(`<div class="item"></div>`).html(`
-        <div class="menu-6-item bg-white hover-overlay">
+        <div class="menu-6-item bg-white">
+          <div class="cont  hover-overlay">
           <img class="menu-6-img img-fluid" onclick="goToDesc(${key});" src="${value.imageUrl}">
+          </div>
           <h5 class="h5-sm" onclick="goToDesc(${key});">${value.name}</h5>
           <p class="grey-color" onclick="goToDesc(${key});">${value.description}</p>
           <div class="price" onclick="goToDesc(${key});">$ ${value.price.toLocaleString()}</div>
           <button onclick="addToCard(${key})">Add To Card</button>
-        </div>
+          </div>
       `);
 
       if (list.length > 0) {
