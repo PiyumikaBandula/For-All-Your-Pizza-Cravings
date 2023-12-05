@@ -42,8 +42,10 @@ function reloadCard() {
                               <button onclick="changeQuantity(' + key + ', ' + (value.quantity + 1) + ')">+</button>\
                           </td>\
                           <td data-label="Total" class="product-price-total"><h5 class="h5-md">$ ' + (value.price * value.quantity).toLocaleString() + '</h5></td>\
-                        </tr>');
+                          <td data-label="Delete" class="td-trash delete' + key + '"><i class="far fa-trash-alt"></i></td>\
+                          </tr>');
         listCard.append(newDiv);
+        $('.delete' + key).attr('onclick', `deleteItem(${key})`);
       }
     }
   });
@@ -55,6 +57,14 @@ function reloadCard() {
   // After modifying the cart, save it to localStorage
   saveToLocalStorage(listCards);
 }
+
+function deleteItem (key) {
+  if (listCards[key]) {
+    delete listCards[key];
+    reloadCard();
+  }
+}
+
 
 function changeQuantity(key, quantity) {
   if (quantity == 0) {
