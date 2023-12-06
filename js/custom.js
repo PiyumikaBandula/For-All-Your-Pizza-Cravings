@@ -12,11 +12,8 @@
 		$('#footer').load('https://piyumikabandula.github.io/Pizza-Website/foot.html');
 	});
 
-	function setx1() {
-		$(".h2-xl").text('Sign Up');
-	}
-
-// 	function login() {
+	function login() {
+		$(".h2-xl").text('Sign In');
 // 		// var username = $('#login-email').val();
 // 		// var password = $('#login-password').val();
 
@@ -36,9 +33,10 @@
 // 		// 		window.alert('Login Successful');
 // 		// 	}
 // 		// });
-// 	}
+	}
 
-// 	function signup() {
+	function signup() {
+		$(".h2-xl").text('Sign Up');
 // 		// var name = $('#signup-name').val();
 // 		// var username = $('#signup-email').val();
 // 		// var password = $('#signup-password').val();
@@ -60,7 +58,7 @@
 // 		// 		window.alert('Signup Successful');
 // 		// 	}
 // 		// });
-// 	}
+	}
 
 // 	// Validate username
 // function validate_username(l,un) {
