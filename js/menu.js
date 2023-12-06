@@ -109,7 +109,7 @@ $(document).ready(function() {
           <h5 class="h5-sm" onclick="goToDesc(${key});">${value.name}</h5>
           <p class="grey-color" onclick="goToDesc(${key});">${value.description}</p>
           <div class="price" onclick="goToDesc(${key});">$ ${value.price.toLocaleString()}</div>
-          <button onclick="addToCard(${key})">Add To Card</button>
+          <button onclick="addToCard(${key})">Add To Cart</button>
           </div>
       `);
 
