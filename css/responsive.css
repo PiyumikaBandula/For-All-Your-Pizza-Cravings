@@ -5,54 +5,66 @@
   /*------------------------------------------*/
   .wide-60 { padding-top: 80px; padding-bottom: 40px; }
 
-   .navik-header.sticky {
-    position: fixed;
-    width: 100%;
-    -webkit-animation-name: stickyTransition;
-    animation-name: stickyTransition;
-    -webkit-animation-duration: 0.5s;
-    animation-duration: 0.5s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-box-shadow: 0 2px 3px rgba(96, 96, 96, .1);
-    -moz-box-shadow: 0 2px 3px rgba(96, 96, 96, .1);
-    box-shadow: 0 2px 3px rgba(96, 96, 96, .1);
-  }
-
-  #header1.navik-header { padding-top: 0; }
-
-  .navik-header .logo { padding: 10px 0; float: right; }
-  .navik-header .logo img { width: auto; max-width: inherit; max-height: 70px; } 
-
-  .navik-menu { text-align: center; }
-  .navik-menu ul.top-list { margin-top: 15px; }
-
-  .navik-menu ul li > a, #header-1 .navik-menu ul li > a { font-size: 20px; background-color: rgba(160, 160, 160, .05); margin-bottom: 7px; }
-  .navik-menu ul li.basket-ico > a { margin-bottom: 10px; }
-
-  .navik-menu ul ul li > a, #header-1 .navik-menu ul ul li > a { font-size: 18px; }
-
-  #header1 .navik-menu ul li.nav-btn a { top: 0; font-size: 32px; padding-left: 15px; padding-right: 15px; }
-
   .about-3-img { margin: 0 5% 30px; }
   
   .basket-ico em.roundpoint { top: -6px; }
 
-  .callusbtn { display: block; }
+  .navbar-toggler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30%; /* Adjust the margin as needed */
+  }
 
-  .navik-menu .mega-menu-container { padding: 20px 8px 0; height: 320px; overflow: scroll;  overflow-x: hidden; }
-  .mega-menu-box { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed #ccc;  }
-  .navik-menu .mega-menu-desc { font-size: 16px; }
-  .navik-menu .mega-menu-heading { font-size: 18px; margin-bottom: 5px; }
-
-  .mega-menu-thumbnail { display: none; }
+  .shopping {
+    margin-top: 5%;
+    margin-left: 80%; /* Adjust the margin as needed */
+  }
 
   /*------------------------------------------*/
   /*   CONTENT
   /*------------------------------------------*/
 
   /* Menu */
-  .menu-1-list li.resp-lst:last-child, .menu-3-list li.resp-lst:last-child { margin-bottom: 40px; }
+  .menu-6-item {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .menu-6-img {
+    width: 100%;
+  }
+
+  .list {
+    grid-template-columns: repeat(1, 1fr); /* Adjust the number of columns for better responsiveness */
+    column-gap: 10px;
+    row-gap: 10px;
+    margin-top: 20px;
+  }
+
+  .list .item {
+    padding: 10px;
+  }
+
+  .menu-6-item {
+    margin-bottom: 10px;
+  }
+
+  .item-details {
+    padding: 5px;
+  }
+
+  .menu-6-img {
+    height: 150px; /* Adjust the height for better proportions */
+  }
+
+  .h5-sm, .grey-color, .price, button {
+    font-size: 12px; /* Adjust font size for better readability */
+  }
+
+  a + div {
+    width: 180px; /* Adjust width for better fit */
+  }
 
   /* Blog */
   .single-post-title, .single-post-txt, .post-share-links, #op-row, .comments-wrapper { padding: 0; }
@@ -141,49 +153,64 @@
   /*------------------------------------------*/
   /*   NAVIGATION MENU    
   /*------------------------------------------*/
-
-   .navik-header.sticky {
-    position: fixed;
-    width: 100%;
-    -webkit-animation-name: stickyTransition;
-    animation-name: stickyTransition;
-    -webkit-animation-duration: 0.5s;
-    animation-duration: 0.5s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-box-shadow: 0 2px 3px rgba(96, 96, 96, .1);
-    -moz-box-shadow: 0 2px 3px rgba(96, 96, 96, .1);
-    box-shadow: 0 2px 3px rgba(96, 96, 96, .1);
-  }
-
-  #header-1.navik-header { padding-top: 0; }
-
-  .navik-header .logo { padding: 10px 0; float: none; }
-  .navik-header .logo img { width: auto; max-width: inherit; max-height: 70px; } 
-
-  .navik-menu { text-align: center; }
-  .navik-menu ul.top-list { margin-top: 15px; }
-
-  .navik-menu ul li > a, #header-1 .navik-menu ul li > a { font-size: 20px; background-color: rgba(160, 160, 160, .05); margin-bottom: 7px; }
-  .navik-menu ul li.basket-ico > a { margin-bottom: 10px; }
-
-  .navik-menu ul ul li > a, #header-1 .navik-menu ul ul li > a { font-size: 18px; }
-
-  .navik-menu .mega-menu-container { text-align: left; padding: 25px 0 0; height: 450px; overflow: scroll;  overflow-x: hidden;  }
-  .mega-menu-box, .mega-menu-box.last-menu-box {  margin-bottom: 25px; }
-  .navik-menu .mega-menu-desc { font-size: 15px; }
-  .navik-menu .mega-menu-heading { font-size: 20px; margin-bottom: 5px; }
-  .navik-menu .mega-menu-media-info { padding-left: 15px; }
-
-  #header-1 .navik-menu ul li.nav-btn a { top: 0; font-size: 32px; padding-left: 15px; padding-right: 15px; }
-
   .basket-ico em.roundpoint { top: -6px; }
 
-  .callusbtn { display: block; }
+  .navbar-toggler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20%; /* Adjust the margin as needed */
+  }
+
+  .shopping {
+    margin-top: 2.5%;
+    margin-left: 85%; /* Adjust the margin as needed */
+  }
 
   /*------------------------------------------*/
   /*   CONTENT
   /*------------------------------------------*/
+
+  /* Menu */
+  .menu-6-item {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .menu-6-img {
+    width: 100%;
+  }
+
+  .list {
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns for better responsiveness */
+    column-gap: 10px;
+    row-gap: 10px;
+    margin-top: 20px;
+  }
+
+  .list .item {
+    padding: 10px;
+  }
+
+  .menu-6-item {
+    margin-bottom: 10px;
+  }
+
+  .item-details {
+    padding: 5px;
+  }
+
+  .menu-6-img {
+    height: 150px; /* Adjust the height for better proportions */
+  }
+
+  .h5-sm, .grey-color, .price, button {
+    font-size: 12px; /* Adjust font size for better readability */
+  }
+
+  a + div {
+    width: 180px; /* Adjust width for better fit */
+  }
 
   /* About */
   #about-2 { padding-top: 80px; padding-bottom: 300px; }
@@ -248,34 +275,6 @@
   #m4-top .menu-4-img { position: relative; margin-left: -175%; margin-bottom: 0; }
   #m4-bottom .menu-4-img { position: relative; margin-left: 20px; }
   #m4-top .menu-4-img img, #m4-bottom .menu-4-img img { max-width: none; display: inline-block; }
-
-  /* Gallery */
-  #gallery-2 { padding-top: 80px; padding-bottom: 64px; }
-
-  /* Reviews */
-  #reviews-1 { padding-top: 80px; padding-bottom: 70px; }
-
-  #reviews-1 img { width: 100px; height: 100px; }
-  .review-1-txt p { font-size: 1.4rem; padding: 0 1%; }
-
-  /* Banner */
-  .banner-1-txt { padding: 0; }
-
-  .banner-2-txt h2 { font-size: 4.25rem; padding: 0; margin-bottom: 30px;  }
-  .banner-2-txt p { font-size: 1.2rem; padding: 0 5%; margin-bottom: 15px; }
-
-  .banner-3-txt h2 { font-size: 3.5rem; }
-  .banner-3-txt p { padding: 0; margin-bottom: 25px; }
-  .banner-3-img img { max-width: none;  width: 160%; display: inline-block; margin-left: -20px; }
-
-  .banner-4-txt h2 { font-size: 4rem; line-height: 1.15; margin-bottom: 15px; }
-  .banner-4-txt h4 { margin-bottom: 14px; }
-  .banner-4-txt p { padding: 0 10%; margin-bottom: 25px; }
-  .banner-4-txt .btn { font-size: 19px; padding: 16px 40px; }
-
-  /* FAQs */
-  .questions-wrapper, .faqs-1-questions { padding: 0; }
-  .more-questions-btn { margin-top: 20px; }
 
   #newsletter .inner-bg { padding: 50px 0 40px; }
   .newsletter-section .newsletter-form { padding: 0 3%; }
@@ -372,50 +371,7 @@
   .section-title h2.h2-title { font-size: 4.15rem; }
   .section-title p { padding: 0 15%; }
 
-  /*------------------------------------------*/
-  /*   NAVIGATION MENU    
-  /*------------------------------------------*/
-
-   .navik-header.sticky {
-    position: fixed;
-    width: 100%;
-    -webkit-animation-name: stickyTransition;
-    animation-name: stickyTransition;
-    -webkit-animation-duration: 0.5s;
-    animation-duration: 0.5s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-box-shadow: 0 2px 3px rgba(96, 96, 96, .1);
-    -moz-box-shadow: 0 2px 3px rgba(96, 96, 96, .1);
-    box-shadow: 0 2px 3px rgba(96, 96, 96, .1);
-  }
-
-  #header-1.navik-header { padding-top: 0; }
-
-  .navik-header .logo { padding: 10px 0; float: none; }
-  .navik-header .logo img { width: auto; max-width: inherit; max-height: 70px; } 
-
-  .navik-menu { text-align: center; }
-  .navik-menu .mega-menu-container { text-align: left; padding: 25px 8px; }
-  .navik-menu .mega-menu-container .col-lg-3, .navik-menu .mega-menu-container .col-lg-4 { padding-left: 8px; padding-right: 8px;}
-  .mega-menu-media { margin-bottom: 20px; }
-  .mega-menu-container .col-lg-4 .last-menu-box .mega-menu-media {  margin-bottom: 0;}
-  .navik-menu .mega-menu-desc { font-size: 14px; }
-  .navik-menu .mega-menu-heading { font-size: 18px; margin-bottom: 5px; }
-  .navik-menu .mega-menu-media-info { padding-left: 15px; }
-
-  .navik-menu ul.top-list { margin-top: 15px; }
-
-  .navik-menu ul li > a, #header-1 .navik-menu ul li > a { font-size: 20px; background-color: rgba(160, 160, 160, .05); margin-bottom: 7px; }
-  .navik-menu ul li.basket-ico > a { margin-bottom: 10px; }
-
-  .navik-menu ul ul li > a, #header-1 .navik-menu ul ul li > a { font-size: 18px; }
-
-  #header-1 .navik-menu ul li.nav-btn a { top: 0; font-size: 32px; padding-left: 15px; padding-right: 15px; }
-
  .basket-ico em.roundpoint { top: -6px; }
-
-  .callusbtn { display: block; }
 
   /*------------------------------------------*/
   /*   CONTENT
@@ -475,29 +431,8 @@
   .menu-5-price { top: 35px; right: 18px; }
 
   .menu-6-txt .add-to-cart { right: 10px; bottom: 0px; }
-  .menu-6-item:hover .add-to-cart { bottom: 20px; }
 
   .menu-3-img { padding: 0 5px; }
-
-  /* Gallery */
-  #gallery-1 .img-meta, #gallery-2 .img-meta { padding: 30px 20px 25px; } 
-
-  /* Reviews */
-  #reviews-1 img { width: 110px; height: 110px; }
-  .review-1-txt p { font-size: 1.45rem; padding: 0 10%; }
-
-  /* Banner */
-  .banner-1-txt { padding: 0; }
-
-  .banner-2-txt h2 { font-size: 5rem; padding: 0 10%; }
-  .banner-2-txt p { font-size: 1.25rem; padding: 0 5%; margin-bottom: 18px; }
-
-  .banner-3-txt h2 { font-size: 3.85rem; }
-  .banner-3-txt p { padding-right: 10%; } 
-
-  .banner-4-txt h2 { font-size: 4rem; }
-  .banner-4-txt p { padding: 0 10%; }
-  .banner-4-txt .btn { font-size: 18px; padding: 15px 45px; }
 
   /* FAQs */
   .questions-wrapper, .faqs-1-questions { padding: 0; }
@@ -545,5 +480,3 @@
 
 
 }
-
-
