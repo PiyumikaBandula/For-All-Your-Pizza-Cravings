@@ -392,6 +392,29 @@ ul.txt-list {
 /*  Button Color
 /*------------------------------------------*/
 
+.btn-salmon, 
+.scroll .btn-salmon, 
+.white-color .btn-salmon,
+.salmon-hover:hover, 
+.scroll .salmon-hover:hover, 
+.white-color .salmon-hover:hover {
+  color: #fff!important;
+  background-color: #e84e1d;
+  border-color: #e84e1d!important;
+}
+
+.btn-tra-salmon, 
+.scroll .btn-tra-salmon, 
+.white-color .btn-tra-salmon,
+.tra-salmon-hover:hover, 
+.scroll .tra-salmon-hover:hover, 
+.white-color .tra-salmonhover:hover {
+  color: #e84e1d!important;
+  background-color: transparent;
+  border-color: #e84e1d!important;
+}
+
+
 .btn-red, 
 .scroll .btn-red, 
 .white-color .btn-red,

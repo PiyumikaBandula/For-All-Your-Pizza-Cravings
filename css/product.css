@@ -29,47 +29,8 @@ p {
   color: #333;
 }
 
-.add-to-cart-btn {
-  background-color: yellow;
-  color: black;
-  padding: 10px;
-  border: none;
-  cursor: pointer; 
-  float: left;
-}
-
-.add-to-cart-btn:hover {
-    background-color: #f5b200!important;
-}
-
-.back-to-menu-btn {
-  background-color: yellow;
-  color: black;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  float: right;
-}
-
-.back-to-menu-btn:hover {
-    background-color: #f5b200!important;
-}
-
 label, input {
   color: black;
-}
-
-#customize-pizza {
-  width: 100%;
-  background-color: yellow;
-  color: black;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-#customize-pizza:hover {
-  background-color: #f5b200!important;
 }
 
 a {
