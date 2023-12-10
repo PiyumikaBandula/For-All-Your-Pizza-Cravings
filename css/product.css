@@ -8,16 +8,8 @@ p {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: auto;
-  max-width: 600px;
-  margin-top: 10%;
-  margin-bottom: 10%;
-}
-
-.product-image {
-  max-width: 60%;
-  height: 70%;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  margin-top: 5%;
+  margin-bottom: 2%;
 }
 
 .product-name {
