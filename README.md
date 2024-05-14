@@ -1,6 +1,12 @@
-# Pizza website
+# E-commerce website with HTML, CSS, Bootstrap, JavaScript
 
-E-commerce website with funcational menu, shopping cart features.
+## Features
+* functional menu with filtering and add product capabilities
+* product details page for each product
+* functional shopping cart with add, remove, delete capabilities
+* FAQS
+* Booking and Contact us forms
+* Sign in and sign up page
 
 ## Deployed website
 [pizzaforpizza](https://pizzaforpizza.netlify.app/index.html)
