@@ -10,14 +10,15 @@ E-commerce website with funcational menu, shopping cart features.
 
 ![Booking](images/readme/booking.png)
 
-![Contact Us - Mobile View](images/readme/contact_us_mobile_view.png)
+![Contact Us - Mobile View](images/readme/contact_us_-_mobile_view.png)
 
 ![Locations](images/readme/locations.png)
 
-![Menu - Desktop View](images/readme/menu_desktop_view.png)
+![Menu - Desktop View](images/readme/menu_-_desktop_view.png)
 
-![Menu - Mobile View](images/readme/menu_mobile_view.png)
+![Menu - Tablet View](images/readme/menu_-_tablet_view.png)
+![Menu - Mobile View](images/readme/menu_-_mobile_view.png)
 
-![Menu - Tablet View](images/readme/menu_tablet_view.png)
+![Shopping Cart - Desktop View](images/readme/shopping_cart_-_desktop_view.png)
 
 
