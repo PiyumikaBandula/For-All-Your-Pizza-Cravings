@@ -8,6 +8,13 @@
 * Booking and Contact us forms
 * Sign in and sign up page
 
+## Technologies used
+* HTML
+* CSS
+* Bootstrap
+* JavaScript
+* jQuery
+
 ## Deployed website
 [pizzaforpizza](https://pizzaforpizza.netlify.app/index.html)
 
